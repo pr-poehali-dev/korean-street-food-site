@@ -1,12 +1,22 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useState } from "react";
+import HeroSection from "@/components/HeroSection";
+import Navbar from "@/components/Navbar";
+import FeaturedDishes from "@/components/FeaturedDishes";
+import Footer from "@/components/Footer";
+import { FoodItem } from "@/components/FoodCard";
 
 const Index = () => {
+  const [cartItems, setCartItems] = useState<FoodItem[]>([]);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
+    <div className="flex min-h-screen flex-col">
+      <Navbar cartItemsCount={cartItems.length} />
+      <main>
+        <HeroSection />
+        <FeaturedDishes />
+      </main>
+      <Footer />
     </div>
   );
 };
